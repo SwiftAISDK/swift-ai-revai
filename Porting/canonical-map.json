@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "package": "swift-ai-revai",
+  "status": "coarse-import",
+  "upstream": [
+    {
+      "name": "@ai-sdk/revai",
+      "implementation": [
+        "packages/revai/src"
+      ],
+      "tests": [
+        "packages/revai/src/lazy-schemas.test.ts",
+        "packages/revai/src/revai-error.test.ts",
+        "packages/revai/src/revai-transcription-model.test.ts"
+      ]
+    }
+  ],
+  "swift": {
+    "sources": [
+      "Packages/swift-ai-revai/Sources/SwiftAIRevAI/RevAIAudioModels.swift",
+      "Packages/swift-ai-revai/Sources/SwiftAIRevAI/RevAIProvider.swift",
+      "Packages/swift-ai-revai/Sources/SwiftAIRevAI/RevAITranscriptionParsing.swift"
+    ],
+    "tests": [
+      "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/FixtureDownloadTransport.swift",
+      "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/RevAIProviderTests.swift",
+      "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/TestSupport.swift"
+    ],
+    "resources": []
+  },
+  "differences": [
+    {
+      "kind": "native-adaptation",
+      "reason": "Preserve Swift async/await, Sendable, Foundation transport and existing documented gaps; see Docs/CoreV6Parity.md and PortingStatus.md."
+    }
+  ],
+  "reviewNote": "M6: provider runtime, configuration and focused tests extracted. Existing upstream baseline, capability boundaries and gaps retained."
+}

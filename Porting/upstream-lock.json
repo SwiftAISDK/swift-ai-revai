@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "name": "@ai-sdk/revai",
+      "reviewedVersion": "3.0.68",
+      "ledgerKind": "provider",
+      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`",
+      "reviewStatus": "imported-reviewed-with-gaps",
+      "archiveIntegrity": "sha512-9fwPeAodD1GNki1J4F8VivLAvX4ccfW/2FAEGpQWIavVkYgctEKY2Hl9UQUyB25F/cXCuu5mdp9rzE/ALJd3Lw==",
+      "sourceRef": "npm:@ai-sdk/revai@3.0.68",
+      "testRef": "682e2dd71456f14f9da33a1b983d1998c3a1184c",
+      "testRefRelationship": "inventory-snapshot-not-release-verified",
+      "contractFamilies": [],
+      "contractReview": "not-imported; inspect upstream declarations before extraction"
+    }
+  ]
+}
