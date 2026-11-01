@@ -3,16 +3,19 @@
   "packages": [
     {
       "name": "@ai-sdk/revai",
-      "reviewedVersion": "3.0.68",
+      "reviewedVersion": "3.0.72",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`",
+      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-9fwPeAodD1GNki1J4F8VivLAvX4ccfW/2FAEGpQWIavVkYgctEKY2Hl9UQUyB25F/cXCuu5mdp9rzE/ALJd3Lw==",
-      "sourceRef": "npm:@ai-sdk/revai@3.0.68",
-      "testRef": "682e2dd71456f14f9da33a1b983d1998c3a1184c",
-      "testRefRelationship": "inventory-snapshot-not-release-verified",
-      "contractFamilies": [],
-      "contractReview": "not-imported; inspect upstream declarations before extraction"
+      "archiveIntegrity": "sha512-ZF12wU9NmdoUveXk+KwMtLFFufIgN36s0gdF4WwzlUjyS+qLhZLdtnUkX2ewoT9+s2KGj48whR4SX6xxRIgQ5w==",
+      "sourceRef": "npm:@ai-sdk/revai@3.0.72",
+      "testRef": "9b603d36186b75e58d5479445a96c76f6e2d2700",
+      "testRefRelationship": "matching-release",
+      "contractFamilies": [
+        "ProviderV4",
+        "TranscriptionModelV4"
+      ],
+      "contractReview": "2026-11-01: published declarations, source and exact matching-release changed tests reviewed; scoped dispositions and Swift translations are in Docs/WeeklyUpstreamAudit20261101.json. Existing broader product gaps remain; reviewed delta is not full-package parity."
     }
   ]
 }

@@ -24,7 +24,8 @@
     "tests": [
       "Tests/SwiftAIRevAITests/FixtureDownloadTransport.swift",
       "Tests/SwiftAIRevAITests/RevAIProviderTests.swift",
-      "Tests/SwiftAIRevAITests/TestSupport.swift"
+      "Tests/SwiftAIRevAITests/TestSupport.swift",
+      "Tests/SwiftAIRevAITests/Weekly20261101CredentialsTests.swift"
     ],
     "resources": []
   },
