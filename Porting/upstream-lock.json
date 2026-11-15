@@ -5,7 +5,7 @@
       "name": "@ai-sdk/revai",
       "reviewedVersion": "3.0.81",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/WeeklyUpstreamAudit20261114.json",
+      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`; 2026-11-01 delta: Docs/Archive/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/Archive/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/Archive/WeeklyUpstreamAudit20261114.json",
       "reviewStatus": "imported-reviewed-with-gaps",
       "archiveIntegrity": "sha512-tmpaV23f+QDXe/BVjVr/gRCsTukJ2PH6VQMYbFW7de/ffURlCiU31iE8Zj7UwML31pGcgq0T1btoki/Wsm9SAQ==",
       "sourceRef": "npm:@ai-sdk/revai@3.0.81",
@@ -15,7 +15,7 @@
         "ProviderV4",
         "TranscriptionModelV4"
       ],
-      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
+      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/Archive/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
     }
   ]
 }

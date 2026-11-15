@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-revai",
-  "version": "1.1.2",
-  "releaseID": "weekly-upstream-20261114",
+  "version": "1.2.0",
+  "releaseID": "parity-repairs-20261115",
   "source": {
-    "commit": "07fbf86b82d83d9724bd03622e9e87e74395286f",
-    "baseCommit": "07fbf86b82d83d9724bd03622e9e87e74395286f",
+    "commit": "1cd591bdd6b7150a3e51dd5a9f613163d7788b9c",
+    "baseCommit": "1cd591bdd6b7150a3e51dd5a9f613163d7788b9c",
     "workingTree": false,
-    "inputsSHA256": "63e472c0fe891cb7636d225e1c6467e4761dc3721be68081f2afa9f0b656bb29"
+    "inputsSHA256": "742b7c438463038ef03e06c766ac4148942b17abafa1e77df2381eee6e6bb446"
   },
   "dependencies": [
     {
@@ -17,9 +17,9 @@
   ],
   "changes": [
     {
-      "id": "weekly-upstream-20261114",
-      "notes": "Refresh the versioned request identity while retaining the current native request, response and stream behavior. Internal upstream model-catalog reorganizations preserve the existing native policies. Reviewed npm delta: @ai-sdk/revai 3.0.76 to 3.0.81. Validation: `node Scripts/test-packages.mjs` passed all 52 owning suites and 1731 facade tests; tooling 27/27, generation/isolation checks, standalone exports and 106 minimum/latest consumers, documentation check and 101-page build passed. Publication requires green exact-source Swift 6.3.3 CI. Paid/live verification and full-package parity are not claimed.",
-      "compatibility": "Compatible behavior/header correction. Original public selectors are preserved. npm baselines and Swift SemVer are independent; this reviewed delta does not establish full-package or live-service parity."
+      "id": "parity-repairs-20261115",
+      "notes": "Keep the call's `language` when `providerOptions[\"revai\"]` does not set one, instead of replacing it with the schema default `en`; an explicit option still wins and calls without a language still send `en`. Compute duration from the latest text element end across all monologues, record the response timestamp at call start, and use the Rev.ai error message only for the upstream `{error: {message, code: number}}` shape. All Swift-reachable upstream transcription and error test cases are translated with the original fixtures.",
+      "compatibility": "Source-compatible; the public initializer remains. Transcription language, duration and error messages change to match the reviewed upstream package. Dependency minimums are unchanged."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-revai",
@@ -28,7 +28,7 @@
       "name": "@ai-sdk/revai",
       "reviewedVersion": "3.0.81",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/WeeklyUpstreamAudit20261114.json",
+      "evidence": "`AIProviders.revAI`, `RevAITranscriptionModel`, `RevAIProviderTests.swift`; 2026-11-01 delta: Docs/Archive/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/Archive/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/Archive/WeeklyUpstreamAudit20261114.json",
       "reviewStatus": "imported-reviewed-with-gaps",
       "archiveIntegrity": "sha512-tmpaV23f+QDXe/BVjVr/gRCsTukJ2PH6VQMYbFW7de/ffURlCiU31iE8Zj7UwML31pGcgq0T1btoki/Wsm9SAQ==",
       "sourceRef": "npm:@ai-sdk/revai@3.0.81",
@@ -38,7 +38,7 @@
         "ProviderV4",
         "TranscriptionModelV4"
       ],
-      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
+      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/Archive/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -53,19 +53,19 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Package.swift",
-      "sha256": "d2f0e9d7f5d8070b3118c4e64f88858629ca187aaf5f4b103784963ebfa5173e"
+      "sha256": "0527ee03871ec80adefe027f303c3f140dee2e2f9e032ec0f9febd4cd7b529d0"
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Porting/map.json",
-      "sha256": "a7ab7abd2ec38bfbd77e04e81bc12a3cd00e3af02019c61b0a426ccbf2f4e013"
+      "sha256": "b3e94b03fec4dbfde624777422d9a0acdcae47ae7533e11ae0cc8ca4d6a5d731"
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/README.md",
-      "sha256": "da2454d4cd3c173932b3c0386f753c2b44a71d2ecfdb8ea9f3c0e5e55157e81d"
+      "sha256": "32a77f874c327ad6fbd54f19ceb56083e14de07a3217eaf545ea25b072677219"
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Sources/SwiftAIRevAI/RevAIAudioModels.swift",
-      "sha256": "abfee74ec6f8d9a898b7dfb0655b4ee908993dc53f204bc659508024f5742eb8"
+      "sha256": "f00881f8b38cfba28d10bb051f7801807dc155650b649da8fb786e605985e682"
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Sources/SwiftAIRevAI/RevAIProvider.swift",
@@ -73,15 +73,31 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Sources/SwiftAIRevAI/RevAITranscriptionParsing.swift",
-      "sha256": "d86f2c490cbbc83cc3048b1b27462a09e3838df221c7e6f91d6aa7d6c13a71f2"
+      "sha256": "ae486510c228f2f414960174a9c3b01c20aacfbdbcbd8f5b9b4a83d6313f2f55"
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/FixtureDownloadTransport.swift",
       "sha256": "81184a99e354e1d41b67f54ec48567e5ec4c106c197b03a82b0fe0a10535fa02"
     },
     {
+      "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/Fixtures/revai-job-status.json",
+      "sha256": "32d2299820584c9754dc6318e69e8bad6c47576246cc59871238409d68ec2454"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/Fixtures/revai-job-submit.json",
+      "sha256": "9df4c55eb75df6e270b1cad75826ab19e89ec53c85eb69be224849d5b2ba3f0d"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/Fixtures/revai-transcript.json",
+      "sha256": "283fdec9aecbb9b4833d117b3a5b68e997e7a96c3945d370fe09473dec0494df"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/Fixtures/transcript-test.mp3",
+      "sha256": "988e68713cdef40386e9d028f17b095253747c18683270277044cbb6b0bb3327"
+    },
+    {
       "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/RevAIProviderTests.swift",
-      "sha256": "b8839369d11fddf489e697ebb9db6e118bff666e2806562cd85168fa24c09fd4"
+      "sha256": "9bdeb198365aafa77c313c5706b072d6c2be8ef3837fa85f89fbeb3d00f416c9"
     },
     {
       "canonicalPath": "Packages/swift-ai-revai/Tests/SwiftAIRevAITests/TestSupport.swift",

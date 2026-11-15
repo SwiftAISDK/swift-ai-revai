@@ -27,7 +27,12 @@
       "Tests/SwiftAIRevAITests/TestSupport.swift",
       "Tests/SwiftAIRevAITests/Weekly20261101CredentialsTests.swift"
     ],
-    "resources": []
+    "resources": [
+      "Tests/SwiftAIRevAITests/Fixtures/revai-job-status.json",
+      "Tests/SwiftAIRevAITests/Fixtures/revai-job-submit.json",
+      "Tests/SwiftAIRevAITests/Fixtures/revai-transcript.json",
+      "Tests/SwiftAIRevAITests/Fixtures/transcript-test.mp3"
+    ]
   },
   "differences": [
     {

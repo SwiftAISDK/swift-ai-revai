@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.2
+## 1.2.0
 
-- Refresh the versioned request identity while retaining the current native request, response and stream behavior. Internal upstream model-catalog reorganizations preserve the existing native policies. Reviewed npm delta: @ai-sdk/revai 3.0.76 to 3.0.81. Validation: `node Scripts/test-packages.mjs` passed all 52 owning suites and 1731 facade tests; tooling 27/27, generation/isolation checks, standalone exports and 106 minimum/latest consumers, documentation check and 101-page build passed. Publication requires green exact-source Swift 6.3.3 CI. Paid/live verification and full-package parity are not claimed.
-  Compatibility: Compatible behavior/header correction. Original public selectors are preserved. npm baselines and Swift SemVer are independent; this reviewed delta does not establish full-package or live-service parity.
+- Keep the call's `language` when `providerOptions["revai"]` does not set one, instead of replacing it with the schema default `en`; an explicit option still wins and calls without a language still send `en`. Compute duration from the latest text element end across all monologues, record the response timestamp at call start, and use the Rev.ai error message only for the upstream `{error: {message, code: number}}` shape. All Swift-reachable upstream transcription and error test cases are translated with the original fixtures.
+  Compatibility: Source-compatible; the public initializer remains. Transcription language, duration and error messages change to match the reviewed upstream package. Dependency minimums are unchanged.
