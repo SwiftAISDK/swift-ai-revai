@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0
+## 1.2.1
 
-- Keep the call's `language` when `providerOptions["revai"]` does not set one, instead of replacing it with the schema default `en`; an explicit option still wins and calls without a language still send `en`. Compute duration from the latest text element end across all monologues, record the response timestamp at call start, and use the Rev.ai error message only for the upstream `{error: {message, code: number}}` shape. All Swift-reachable upstream transcription and error test cases are translated with the original fixtures.
-  Compatibility: Source-compatible; the public initializer remains. Transcription language, duration and error messages change to match the reviewed upstream package. Dependency minimums are unchanged.
+- Align the provider request identity with @ai-sdk/revai 3.0.83 after comparing source, declarations and matching-release tests against 3.0.81. Offline validation passed: node Scripts/test-packages.mjs (56 packages, 3672 owning tests and 1760 compatibility tests), generation, tooling, isolation, and version selection. See Docs/Archive/WeeklyUpstreamAudit20261122.md for retained gaps. Paid provider calls were skipped.
+  Compatibility: Source-compatible request-header update.
